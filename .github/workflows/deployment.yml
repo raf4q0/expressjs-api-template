@@ -28,5 +28,4 @@ jobs:
       - name: copy builds to server
         run: |
           rsync -vrm  dist/* ${{ secrets.HOST_IP }}:/home/ubuntu/deployment
-          # ssh ${{ secrets.HOST_IP }} "pm2 restart ecosystem.config.js"
-          ssh ${{ secrets.HOST_IP }} "ls -la" 
+          ssh ${{ secrets.HOST_IP }} "ls -la /home/ubuntu/deployment" 
