@@ -28,5 +28,5 @@ jobs:
       - name: copy builds to server
         run: |
           rsync -avz ./dist/ ubuntu@${{ secrets.HOST_IP }}:/home/ubuntu/deployment/
-          rsync -avz ./node_modules/ ubuntu@${{ secrets.HOST_IP }}:/home/ubuntu/deployment/
+          rsync -avz ./node_modules/ ubuntu@${{ secrets.HOST_IP }}:/home/ubuntu/deployment/node_modules/
           ssh ubuntu@${{ secrets.HOST_IP }} "ls -la /home/ubuntu/deployment/" 
