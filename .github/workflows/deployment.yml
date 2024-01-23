@@ -27,5 +27,5 @@ jobs:
           ssh-keyscan -H ${{ secrets.HOST_IP }} >> ~/.ssh/known_hosts
       - name: copy builds to server
         run: |
-          rsync -vrm  dist/* ${{ secrets.HOST_IP }}:/home/ubuntu/deployment
-          ssh ${{ secrets.HOST_IP }} "ls -la /home/ubuntu/deployment" 
+          rsync -avz ./dist/ ubuntu@${{ secrets.HOST_IP }}:/home/ubuntu/deployment/
+          ssh ubuntu@${{ secrets.HOST_IP }} "ls -la /home/ubuntu/deployment/" 
